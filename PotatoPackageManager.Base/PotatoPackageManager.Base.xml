@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PotatoPackageManager.Base</name>
+    </assembly>
+    <members>
+        <member name="T:PotatoPackageManager.Base.LanguageManager">
+            <summary>
+            Manage multi-language environment.
+            </summary>
+        </member>
+        <member name="M:PotatoPackageManager.Base.LanguageManager.#ctor(System.String)">
+            <summary>
+            Construct default language.
+            </summary>
+            <param name="lang">Default language code.<br>Example: ja-JP, en-US</br></param>
+        </member>
+        <member name="M:PotatoPackageManager.Base.LanguageManager.ChangeLanguage(System.String)">
+            <summary>
+            Change default language to new language.
+            </summary>
+            <param name="afterlang">Language code for target language.</param>
+        </member>
+        <member name="M:PotatoPackageManager.Base.LanguageManager.GetText(System.String)">
+            <summary>
+            Get text to selected language resources.
+            </summary>
+            <param name="key">a resource key.</param>
+            <returns>selected language resource value.</returns>
+        </member>
+        <member name="T:PotatoPackageManager.Base.Logger">
+            <summary>
+            Manage log output class.
+            </summary>
+        </member>
+        <member name="M:PotatoPackageManager.Base.Logger.Log(System.String,PotatoPackageManager.Base.LogType)">
+            <summary>
+            
+            </summary>
+            <param name="log"></param>
+            <param name="type"></param>
+        </member>
+        <member name="T:PotatoPackageManager.Base.LogType">
+            <summary>
+            The type of log used by <see cref="T:PotatoPackageManager.Base.Logger"/>.
+            </summary>
+        </member>
+        <member name="F:PotatoPackageManager.Base.LogType.Error">
+            <summary>
+            a error log.
+            </summary>
+        </member>
+        <member name="F:PotatoPackageManager.Base.LogType.Warning">
+            <summary>
+            a warning log.
+            </summary>
+        </member>
+        <member name="F:PotatoPackageManager.Base.LogType.Info">
+            <summary>
+            a infomation log.
+            </summary>
+        </member>
+        <member name="T:PotatoPackageManager.Base.Resource">
+            <summary>
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            </summary>
+        </member>
+        <member name="P:PotatoPackageManager.Base.Resource.ResourceManager">
+            <summary>
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            </summary>
+        </member>
+        <member name="P:PotatoPackageManager.Base.Resource.Culture">
+            <summary>
+              すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            </summary>
+        </member>
+        <member name="P:PotatoPackageManager.Base.Resource.ErrorNormal">
+            <summary>
+              エラー:  に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:PotatoPackageManager.Base.Resource.InfoNormal">
+            <summary>
+              情報:  に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:PotatoPackageManager.Base.Resource.InvalidArgumentError">
+            <summary>
+              無効な引数です。 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:PotatoPackageManager.Base.Resource.NullArgumentError">
+            <summary>
+              引数がありません。 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:PotatoPackageManager.Base.Resource.SuggestionHelp">
+            <summary>
+              [-h]引数でヘルプを表示します。 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:PotatoPackageManager.Base.Resource.WarningNormal">
+            <summary>
+              警告:  に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+    </members>
+</doc>
