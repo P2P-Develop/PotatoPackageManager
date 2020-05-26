@@ -1,0 +1,56 @@
+{
+  "defaultaction": "upgrade-all",
+
+  "arguments": {
+    "actions": [
+      {
+        "name": "update",
+        "subargs": [ "packagelists", "force" ],
+        "requiresubargs": false
+      },
+
+      {
+        "name": "upgrade",
+        "subargs": [ "packages", "localfiles" ],
+        "requiresubargs": "single"
+      },
+      {
+        "name": "upgrade-all",
+        "override": "upgrade",
+        "requiresubargs": false
+      },
+
+      {
+        "name": "install",
+        "subargs": [ "packages", "localfiles" ],
+        "requiresubargs": "single"
+      }
+    ],
+
+    "help": {
+      "name": "-h",
+      "subargs": [ "actions", "arguments" ],
+      "requiresubargs": false
+    },
+
+    "packagelists": {
+      "isarray": true,
+      "valuetype": "string",
+      "bysearch": "local",
+      "minlength": 1
+    },
+
+    "packages": {
+      "isallay": true,
+      "valuetype": "string",
+      "bysearch": "remote",
+      "minlength": 1
+    },
+
+    "localfiles": {
+      "isarray": true,
+      "valuetype": "path",
+      "minlength": 1
+    }
+  }
+}

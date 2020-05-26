@@ -4,6 +4,44 @@
         <name>PotatoPackageManager.Base</name>
     </assembly>
     <members>
+        <member name="T:PotatoPackageManager.Base.ActionManager">
+            <summary>
+            指定されたアクションを定義・実行します。
+            </summary>
+        </member>
+        <member name="T:PotatoPackageManager.Base.ExceptionManager">
+            <summary>
+            Exceptionのスローを管理します。
+            </summary>
+        </member>
+        <member name="M:PotatoPackageManager.Base.ExceptionManager.Throw(System.Exception,System.Boolean)">
+            <summary>
+            <see cref="T:System.Exception"/>基底クラス継承先のExceptionのメッセージを含めてスローします。
+            </summary>
+            <param name="ex">Exceptionのメッセージ参照に使用します。</param>
+            <param name="suggesthelp">ヘルプの参照を勧めるかどうか。</param>
+        </member>
+        <member name="T:PotatoPackageManager.Base.Exceptions.ArgumentMapParseException">
+            <summary>
+            引数マップのパースに失敗した時にスローするクラス。
+            </summary>
+        </member>
+        <member name="P:PotatoPackageManager.Base.Exceptions.ArgumentMapParseException.Message">
+            <summary>
+            ユーザー向けエラー内容。
+            </summary>
+        </member>
+        <member name="P:PotatoPackageManager.Base.Exceptions.ArgumentMapParseException.ArgsMap">
+            <summary>
+            引数マップのエラー部分。
+            </summary>
+        </member>
+        <member name="M:PotatoPackageManager.Base.Exceptions.ArgumentMapParseException.#ctor(System.String)">
+            <summary>
+            通常のメッセージでエラーをスローします。
+            </summary>
+            <param name="argsmap">エラー部分の引数マップ内容。</param>
+        </member>
         <member name="T:PotatoPackageManager.Base.LanguageManager">
             <summary>
             Manage multi-language environment.
@@ -33,32 +71,36 @@
             Manage log output class.
             </summary>
         </member>
-        <member name="M:PotatoPackageManager.Base.Logger.Log(System.String,PotatoPackageManager.Base.LogType)">
+        <member name="M:PotatoPackageManager.Base.Logger.Info(System.String)">
             <summary>
-            
+            Infoログをコマンドラインに出力します。
             </summary>
-            <param name="log"></param>
-            <param name="type"></param>
+            <param name="log">ログ内容。</param>
         </member>
-        <member name="T:PotatoPackageManager.Base.LogType">
+        <member name="M:PotatoPackageManager.Base.Logger.Warn(System.String)">
             <summary>
-            The type of log used by <see cref="T:PotatoPackageManager.Base.Logger"/>.
+            Warningログをコマンドラインに出力します。
+            </summary>
+            <param name="log">ログ内容。</param>
+        </member>
+        <member name="M:PotatoPackageManager.Base.Logger.Error(System.String)">
+            <summary>
+            Errorログをコマンドラインに出力します。
+            </summary>
+            <param name="log">ログ内容。</param>
+        </member>
+        <member name="T:PotatoPackageManager.Base.Parser.ArgumentMapParser">
+            <summary>
+            ArgumentMapのJsonファイルをパースします。
             </summary>
         </member>
-        <member name="F:PotatoPackageManager.Base.LogType.Error">
+        <member name="M:PotatoPackageManager.Base.Parser.ArgumentMapParser.Parse(System.String)">
             <summary>
-            a error log.
+            ArgumentMapのJsonを動的に分離します。<br/>
+            ファイルを直接指定することはできません。<see cref="T:System.IO.Stream"/>基底クラスを継承したクラス等から読み込んでから指定する必要があります。
             </summary>
-        </member>
-        <member name="F:PotatoPackageManager.Base.LogType.Warning">
-            <summary>
-            a warning log.
-            </summary>
-        </member>
-        <member name="F:PotatoPackageManager.Base.LogType.Info">
-            <summary>
-            a infomation log.
-            </summary>
+            <param name="json">入力するJsonデータ。</param>
+            <returns>Jsonのパースデータが含まれた動的型。</returns>
         </member>
         <member name="T:PotatoPackageManager.Base.Resource">
             <summary>

@@ -8,33 +8,39 @@ namespace PotatoPackageManager.Base
     public static class Logger
     {
         /// <summary>
-        /// 
+        /// Infoログをコマンドラインに出力します。
         /// </summary>
-        /// <param name="log"></param>
-        /// <param name="type"></param>
-        public static void Log(string log, LogType type)
+        /// <param name="log">ログ内容。</param>
+        public static void Info(string log)
         {
-            switch (type)
-            {
-                case LogType.Error:
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write(LanguageManager.GetText("ErrorNormal"));
-                    Console.ResetColor();
-                    Console.WriteLine(log);
-                    break;
-                case LogType.Warning:
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write(LanguageManager.GetText("WarningNormal"));
-                    Console.ResetColor();
-                    Console.WriteLine(log);
-                    break;
-                case LogType.Info:
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.Write(LanguageManager.GetText("InfoNormal"));
-                    Console.ResetColor();
-                    Console.WriteLine(log);
-                    break;
-            }
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write(LanguageManager.GetText("InfoNormal"));
+            Console.ResetColor();
+            Console.WriteLine(log);
+        }
+
+        /// <summary>
+        /// Warningログをコマンドラインに出力します。
+        /// </summary>
+        /// <param name="log">ログ内容。</param>
+        public static void Warn(string log)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write(LanguageManager.GetText("WarningNormal"));
+            Console.ResetColor();
+            Console.WriteLine(log);
+        }
+
+        /// <summary>
+        /// Errorログをコマンドラインに出力します。
+        /// </summary>
+        /// <param name="log">ログ内容。</param>
+        public static void Error(string log)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(LanguageManager.GetText("ErrorNormal"));
+            Console.ResetColor();
+            Console.WriteLine(log);
         }
     }
 }

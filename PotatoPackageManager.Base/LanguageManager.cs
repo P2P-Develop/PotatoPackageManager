@@ -4,14 +4,15 @@ using System.Threading;
 namespace PotatoPackageManager.Base
 {
     /// <summary>
-    /// Manage multi-language environment.
+    /// 多言語環境を管理します。
     /// </summary>
     public class LanguageManager
     {
         /// <summary>
-        /// Construct default language.
+        /// デフォルトの言語を<see cref="CultureInfo"/>の再初期化により設定します。
         /// </summary>
-        /// <param name="lang">Default language code.<br>Example: ja-JP, en-US</br></param>
+        /// <param name="lang">デフォルトの言語コード。<br/>
+        /// <example>例: ja-JP, en-US</example></param>
         public LanguageManager(string lang)
         {
             Resource.Culture = new CultureInfo(lang);
@@ -20,9 +21,9 @@ namespace PotatoPackageManager.Base
         }
 
         /// <summary>
-        /// Change default language to new language.
+        /// デフォルトの言語から新しい言語に<see cref="CultureInfo"/>を再初期化し設定します。
         /// </summary>
-        /// <param name="afterlang">Language code for target language.</param>
+        /// <param name="afterlang">変更先言語コード。</param>
         public static void ChangeLanguage(string afterlang)
         {
             Resource.Culture.ClearCachedData();
@@ -31,10 +32,13 @@ namespace PotatoPackageManager.Base
         }
 
         /// <summary>
-        /// Get text to selected language resources.
+        /// 対象の言語コードのリソースを参照し、stringの値を返します。
         /// </summary>
-        /// <param name="key">a resource key.</param>
-        /// <returns>selected language resource value.</returns>
+        /// <remarks>
+        /// <see cref="LanguageManager.GetText(string)"/>とした場合は文字列が長いため、<c>using static</c>等で<see cref="GetText(string)"/>単体で使用できるようにすることをお勧めします。
+        /// </remarks>
+        /// <param name="key">リソースを参照するキー。</param>
+        /// <returns>対象の言語のリソース ファイルのキーから取得した値。</returns>
         public static string GetText(string key)
         {
             return Resource.ResourceManager.GetString(key, Resource.Culture);

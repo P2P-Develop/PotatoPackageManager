@@ -29,9 +29,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_ExcelExportMode = MultipleSheets
-		RESX_ResXSortingComparison = CurrentCulture
-		RESX_NeutralResourcesLanguage = ja-JP
+		RESX_AutoCreateNewLanguageFiles = True
 		SolutionGuid = {06BC180F-94AC-4FBA-B42A-920E251C8480}
+		RESX_NeutralResourcesLanguage = ja-JP
+		RESX_ResXSortingComparison = CurrentCulture
+		RESX_ExcelExportMode = MultipleSheets
 	EndGlobalSection
 EndGlobal

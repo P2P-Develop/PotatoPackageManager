@@ -138,4 +138,7 @@
   <data name="SuggestionHelp" xml:space="preserve">
     <value>[-h]引数でヘルプを表示します。</value>
   </data>
+  <data name="ArgumentMapParseError" xml:space="preserve">
+    <value>引数マップのパースに失敗しました。</value>
+  </data>
 </root>

@@ -1,25 +1,36 @@
 ﻿using PotatoPackageManager.Base;
+using PotatoPackageManager.Base.Parser;
 using System;
-using static PotatoPackageManager.Base.LanguageManager;
+using System.IO;
 
 namespace PotatoPackageManager
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            dynamic data;
+
             try
             {
-                LanguageManager lang = new LanguageManager("en-US");
+                //LanguageManager lang = new LanguageManager("en-US");
 
-                if (args.Length == 0)
+                using StreamReader reader = new StreamReader("ArgumentMap/Default.json");
+                data = new ArgumentMapParser().Parse(reader.ReadToEnd());
+
+                if (args.Length == 0 && data.defaultaction == null)
+                    throw new ArgumentNullException("args");
+                else if (args.Length == 0 && data.defaultaction != null)
                 {
-                    throw new ArgumentNullException();
+                    Console.WriteLine(data.defaultaction);
+                }
+                else
+                {
                 }
             }
-            catch (ArgumentNullException)
+            catch (ArgumentNullException ex)
             {
-                Logger.Log(GetText("NullArgumentError") + " " + GetText("SuggestionHelp"), LogType.Error);
+                ExceptionManager.Throw(ex, true);
             }
 
 #if DEBUG
