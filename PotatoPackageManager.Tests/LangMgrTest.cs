@@ -11,10 +11,10 @@ namespace PotatoPackageManager.Tests
         {
             InvalidLanguageException ex = Assert.Throws<InvalidLanguageException>(() =>
             {
-                LanguageManager lang = new LanguageManager("hoge-FUGA");
+                LanguageManager lang = new LanguageManager("hogeFUGA");
             });
 
-            Assert.True(ex.Message == "Language Code \"hoge-FUGA\" invalid.");
+            Assert.True(ex.Message == "Language Code \"hogeFUGA\" invalid.");
         }
 
         [Fact(DisplayName = "LanguageManager ChangeLanguage() Exception test")]
@@ -24,10 +24,10 @@ namespace PotatoPackageManager.Tests
 
             InvalidLanguageException ex = Assert.Throws<InvalidLanguageException>(() =>
             {
-                LanguageManager.ChangeLanguage("foo-BAR");
+                LanguageManager.ChangeLanguage("fooBAR");
             });
 
-            Assert.True(ex.Message == "Language Code \"foo-BAR\" invalid.");
+            Assert.True(ex.Message == "Language Code \"fooBAR\" invalid.");
         }
     }
 }
