@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
+using PotatoPackageManager.Base.Exceptions;
+using System;
 using System.IO;
 
 namespace PotatoPackageManager.Base.Parser
@@ -6,7 +8,7 @@ namespace PotatoPackageManager.Base.Parser
     /// <summary>
     /// ArgumentMapのJsonファイルをパースします。
     /// </summary>
-    public class ArgumentMapParser
+    public static class ArgumentMapParser
     {
         /// <summary>
         /// ArgumentMapのJsonを動的に分離します。<br/>
@@ -14,6 +16,16 @@ namespace PotatoPackageManager.Base.Parser
         /// </summary>
         /// <param name="json">入力するJsonデータ。</param>
         /// <returns>Jsonのパースデータが含まれた動的型。</returns>
-        public dynamic Parse(string json) => JObject.Parse(json);
+        public static dynamic Parse(string json)
+        {
+            try
+            {
+                return JObject.Parse(json);
+            }
+            catch (Exception)
+            {
+                throw new ArgumentMapParseException(json);
+            }
+        }
     }
 }

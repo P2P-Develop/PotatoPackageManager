@@ -1,4 +1,5 @@
 ﻿using PotatoPackageManager.Base;
+using PotatoPackageManager.Base.Exceptions;
 using PotatoPackageManager.Base.Parser;
 using System;
 using System.IO;
@@ -16,7 +17,7 @@ namespace PotatoPackageManager
                 //LanguageManager lang = new LanguageManager("en-US");
 
                 using StreamReader reader = new StreamReader("ArgumentMap/Default.json");
-                data = new ArgumentMapParser().Parse(reader.ReadToEnd());
+                data = ArgumentMapParser.Parse(reader.ReadToEnd());
 
                 if (args.Length == 0 && data.defaultaction == null)
                     throw new ArgumentNullException("args");
@@ -31,6 +32,12 @@ namespace PotatoPackageManager
             catch (ArgumentNullException ex)
             {
                 ExceptionManager.Throw(ex, true);
+            }
+            catch (InvalidLanguageException ex)
+            {
+                Logger.Error(ex.Message);
+                LanguageManager.ChangeLanguage("en-US");
+                Logger.Info("An internal code error has occurred and language has been switched to English.");
             }
 
 #if DEBUG

@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using PotatoPackageManager.Base.Exceptions;
+using System.Globalization;
 using System.Threading;
 
 namespace PotatoPackageManager.Base
@@ -15,7 +16,14 @@ namespace PotatoPackageManager.Base
         /// <example>例: ja-JP, en-US</example></param>
         public LanguageManager(string lang)
         {
-            Resource.Culture = new CultureInfo(lang);
+            try
+            {
+                Resource.Culture = new CultureInfo(lang);
+            }
+            catch (CultureNotFoundException)
+            {
+                throw new InvalidLanguageException(lang);
+            }
             Thread.CurrentThread.CurrentCulture = Resource.Culture;
             Thread.CurrentThread.CurrentUICulture = Resource.Culture;
         }
@@ -26,9 +34,18 @@ namespace PotatoPackageManager.Base
         /// <param name="afterlang">変更先言語コード。</param>
         public static void ChangeLanguage(string afterlang)
         {
+            CultureInfo backup = Resource.Culture;
             Resource.Culture.ClearCachedData();
             Resource.Culture = null;
-            Resource.Culture = new CultureInfo(afterlang);
+            try
+            {
+                Resource.Culture = new CultureInfo(afterlang);
+            }
+            catch (CultureNotFoundException)
+            {
+                Resource.Culture = backup;
+                throw new InvalidLanguageException(afterlang);
+            }
         }
 
         /// <summary>
