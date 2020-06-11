@@ -10,17 +10,25 @@ namespace PotatoPackageManager.Base.Exceptions
     /// このクラスは継承できません。
     /// </remarks>
     [Serializable]
-    public class InvalidLanguageException : CultureNotFoundException
+    public sealed class InvalidLanguageException : CultureNotFoundException
     {
+        /// <summary>
+        /// 例外の初期化をします。
+        /// </summary>
+        public InvalidLanguageException()
+        {
+            Message = "Language Code invalid.";
+        }
+
         /// <summary>
         /// ユーザー向けエラー内容。
         /// </summary>
-        public override string Message { get; } = "Language Code invalid.";
+        public override string Message { get; }
 
         /// <summary>
         /// 無効な言語コードの値。
         /// </summary>
-        public virtual string Langcode { get; private set; }
+        public string Langcode { get; private set; }
 
         /// <summary>
         /// 通常のメッセージでエラーをスローします。

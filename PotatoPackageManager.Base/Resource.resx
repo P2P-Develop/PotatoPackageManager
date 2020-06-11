@@ -141,4 +141,7 @@
   <data name="ArgumentMapParseError" xml:space="preserve">
     <value>引数マップのパースに失敗しました。</value>
   </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>不明</value>
+  </data>
 </root>

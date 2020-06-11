@@ -10,9 +10,18 @@ namespace PotatoPackageManager.Base.Exceptions
     public class ArgumentMapParseException : Exception
     {
         /// <summary>
+        /// 例外の初期化をします。
+        /// </summary>
+        public ArgumentMapParseException()
+        {
+            Message = GetText("ArgumentMapParseError");
+            ArgsMap = GetText("Unknown");
+        }
+
+        /// <summary>
         /// ユーザー向けエラー内容。
         /// </summary>
-        public override string Message { get; } = GetText("ArgumentMapParseError");
+        public override string Message { get; }
 
         /// <summary>
         /// 引数マップのエラー部分。

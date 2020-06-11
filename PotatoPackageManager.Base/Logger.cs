@@ -3,7 +3,7 @@
 namespace PotatoPackageManager.Base
 {
     /// <summary>
-    /// Manage log output class.
+    /// ログ出力を管理します。
     /// </summary>
     public static class Logger
     {

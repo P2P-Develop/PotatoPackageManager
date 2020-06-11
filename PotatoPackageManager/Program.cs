@@ -3,30 +3,32 @@ using PotatoPackageManager.Base.Exceptions;
 using PotatoPackageManager.Base.Parser;
 using System;
 using System.IO;
+using static PotatoPackageManager.Base.Logger;
+using static System.Console;
 
 namespace PotatoPackageManager
 {
-    internal class Program
+    internal static class Program
     {
         private static void Main(string[] args)
         {
-            dynamic data;
-
             try
             {
                 //LanguageManager lang = new LanguageManager("en-US");
 
                 using StreamReader reader = new StreamReader("ArgumentMap/Default.json");
-                data = ArgumentMapParser.Parse(reader.ReadToEnd());
+                var data = ArgumentMapParser.Parse(reader.ReadToEnd());
 
-                if (args.Length == 0 && data.defaultaction == null)
-                    throw new ArgumentNullException("args");
-                else if (args.Length == 0 && data.defaultaction != null)
+                switch (args.Length)
                 {
-                    Console.WriteLine(data.defaultaction);
-                }
-                else
-                {
+                    case 0 when data.defaultaction == null:
+                        throw new ArgumentNullException(nameof(args));
+                    case 0 when data.defaultaction != null:
+                        WriteLine(data.defaultaction);
+                        break;
+
+                    default:
+                        break;
                 }
             }
             catch (ArgumentNullException ex)
@@ -35,14 +37,14 @@ namespace PotatoPackageManager
             }
             catch (InvalidLanguageException ex)
             {
-                Logger.Error(ex.Message);
+                Error(ex.Message);
                 LanguageManager.ChangeLanguage("en-US");
-                Logger.Info("An internal code error has occurred and language has been switched to English.");
+                Info("An internal code error has occurred and language has been switched to English.");
             }
 
 #if DEBUG
-            Console.Write("デバッグ環境です。続行するには何かキーを押してください...");
-            Console.ReadKey();
+            Write(@"デバッグ環境です。続行するには何かキーを押してください...");
+            ReadKey();
 #endif
         }
     }

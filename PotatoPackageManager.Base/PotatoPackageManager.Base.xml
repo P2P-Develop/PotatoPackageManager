@@ -11,16 +11,16 @@
         </member>
         <member name="T:PotatoPackageManager.Base.ActionManager.Update">
             <summary>
-            パッケージリストをアップデートします。<br/>
+            パッケージリストをアップデートします。<br />
             パッケージリストが既に最新の場合はアップデートされませんが、<c>force</c>が<c>true</c>になっている場合のみ最新であっても強制的にアップデートします。
             </summary>
             <param name="force">強制的にパッケージリストをアップデートするかどうか。</param>
-            <param name="pkglists">アップグレードするリポジトリを選択します。<br/>
+            <param name="pkglists">アップグレードするリポジトリを選択します。<br />
             この引数は省略可能です。</param>
         </member>
         <member name="T:PotatoPackageManager.Base.ActionManager.Upgrade">
             <summary>
-            アップデートしたパッケージリストからアップグレードができるパッケージがあるか確認します。<br/>
+            アップデートしたパッケージリストからアップグレードができるパッケージがあるか確認します。<br />
             アップグレードできるパッケージがある場合はユーザーにアップグレード確認メッセージを表示しアップグレードします。
             </summary>
             <param name="noask">ユーザーへの確認メッセージを表示せずアップグレードを実行するかどうか。</param>
@@ -32,7 +32,7 @@
         </member>
         <member name="M:PotatoPackageManager.Base.ExceptionManager.Throw(System.Exception,System.Boolean)">
             <summary>
-            <see cref="T:System.Exception"/>基底クラス継承先のExceptionのメッセージを含めてスローします。
+            <see cref="T:System.Exception" />基底クラス継承先のExceptionのメッセージを含めてスローします。
             </summary>
             <param name="ex">Exceptionのメッセージ参照に使用します。</param>
             <param name="suggesthelp">ヘルプの参照を勧めるかどうか。</param>
@@ -40,6 +40,11 @@
         <member name="T:PotatoPackageManager.Base.Exceptions.ArgumentMapParseException">
             <summary>
             引数マップのパースに失敗した時にスローするクラス。
+            </summary>
+        </member>
+        <member name="M:PotatoPackageManager.Base.Exceptions.ArgumentMapParseException.#ctor">
+            <summary>
+            例外の初期化をします。
             </summary>
         </member>
         <member name="P:PotatoPackageManager.Base.Exceptions.ArgumentMapParseException.Message">
@@ -66,6 +71,11 @@
             このクラスは継承できません。
             </remarks>
         </member>
+        <member name="M:PotatoPackageManager.Base.Exceptions.InvalidLanguageException.#ctor">
+            <summary>
+            例外の初期化をします。
+            </summary>
+        </member>
         <member name="P:PotatoPackageManager.Base.Exceptions.InvalidLanguageException.Message">
             <summary>
             ユーザー向けエラー内容。
@@ -89,14 +99,14 @@
         </member>
         <member name="M:PotatoPackageManager.Base.LanguageManager.#ctor(System.String)">
             <summary>
-            デフォルトの言語を<see cref="T:System.Globalization.CultureInfo"/>の再初期化により設定します。
+            デフォルトの言語を<see cref="T:System.Globalization.CultureInfo" />の再初期化により設定します。
             </summary>
-            <param name="lang">デフォルトの言語コード。<br/>
+            <param name="lang">デフォルトの言語コード。<br />
             <example>例: ja-JP, en-US</example></param>
         </member>
         <member name="M:PotatoPackageManager.Base.LanguageManager.ChangeLanguage(System.String)">
             <summary>
-            デフォルトの言語から新しい言語に<see cref="T:System.Globalization.CultureInfo"/>を再初期化し設定します。
+            デフォルトの言語から新しい言語に<see cref="T:System.Globalization.CultureInfo" />を再初期化し設定します。
             </summary>
             <param name="afterlang">変更先言語コード。</param>
         </member>
@@ -105,14 +115,14 @@
             対象の言語コードのリソースを参照し、stringの値を返します。
             </summary>
             <remarks>
-            <see cref="M:PotatoPackageManager.Base.LanguageManager.GetText(System.String)"/>とした場合は文字列が長いため、<c>using static</c>等で<see cref="M:PotatoPackageManager.Base.LanguageManager.GetText(System.String)"/>単体で使用できるようにすることをお勧めします。
+            <see cref="M:PotatoPackageManager.Base.LanguageManager.GetText(System.String)" />とした場合は文字列が長いため、<c>using static</c>等で<see cref="M:PotatoPackageManager.Base.LanguageManager.GetText(System.String)" />単体で使用できるようにすることをお勧めします。
             </remarks>
             <param name="key">リソースを参照するキー。</param>
             <returns>対象の言語のリソース ファイルのキーから取得した値。</returns>
         </member>
         <member name="T:PotatoPackageManager.Base.Logger">
             <summary>
-            Manage log output class.
+            ログ出力を管理します。
             </summary>
         </member>
         <member name="M:PotatoPackageManager.Base.Logger.Info(System.String)">
@@ -140,8 +150,8 @@
         </member>
         <member name="M:PotatoPackageManager.Base.Parser.ArgumentMapParser.Parse(System.String)">
             <summary>
-            ArgumentMapのJsonを動的に分離します。<br/>
-            ファイルを直接指定することはできません。<see cref="T:System.IO.Stream"/>基底クラスを継承したクラス等から読み込んでから指定する必要があります。
+            ArgumentMapのJsonを動的に分離します。<br />
+            ファイルを直接指定することはできません。<see cref="T:System.IO.Stream" />基底クラスを継承したクラス等から読み込んでから指定する必要があります。
             </summary>
             <param name="json">入力するJsonデータ。</param>
             <returns>Jsonのパースデータが含まれた動的型。</returns>

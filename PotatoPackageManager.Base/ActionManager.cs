@@ -1,11 +1,9 @@
-﻿using System;
-
-namespace PotatoPackageManager.Base
+﻿namespace PotatoPackageManager.Base
 {
     /// <summary>
     /// 指定されたアクションを定義・実行します。
     /// </summary>
-    public class ActionManager
+    public static class ActionManager
     {
         /// <summary>
         /// パッケージリストをアップデートします。<br/>

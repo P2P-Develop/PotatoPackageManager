@@ -1,12 +1,13 @@
 ﻿using System;
 using static PotatoPackageManager.Base.LanguageManager;
+using static PotatoPackageManager.Base.Logger;
 
 namespace PotatoPackageManager.Base
 {
     /// <summary>
     /// Exceptionのスローを管理します。
     /// </summary>
-    public class ExceptionManager
+    public static class ExceptionManager
     {
         /// <summary>
         /// <see cref="Exception"/>基底クラス継承先のExceptionのメッセージを含めてスローします。
@@ -15,7 +16,7 @@ namespace PotatoPackageManager.Base
         /// <param name="suggesthelp">ヘルプの参照を勧めるかどうか。</param>
         public static void Throw(Exception ex, bool suggesthelp)
         {
-            Logger.Error(ex.Message + (suggesthelp ? "" : " " + GetText("SuggestionHelp")));
+            Error(ex.Message + (suggesthelp ? "" : " " + GetText("SuggestionHelp")));
         }
     }
 }
