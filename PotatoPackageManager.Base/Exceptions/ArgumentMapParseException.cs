@@ -1,12 +1,12 @@
-﻿using System;
-using static PotatoPackageManager.Base.LanguageManager;
+﻿using PotatoPackageManager.Base.Parser;
+using System;
+using static PotatoPackageManager.Base.LanguageChanger;
 
 namespace PotatoPackageManager.Base.Exceptions
 {
     /// <summary>
     /// 引数マップのパースに失敗した時にスローするクラス。
     /// </summary>
-    [Serializable]
     public class ArgumentMapParseException : Exception
     {
         /// <summary>
@@ -15,7 +15,7 @@ namespace PotatoPackageManager.Base.Exceptions
         public ArgumentMapParseException()
         {
             Message = GetText("ArgumentMapParseError");
-            ArgsMap = GetText("Unknown");
+            ArgsMap = null;
         }
 
         /// <summary>
@@ -26,15 +26,27 @@ namespace PotatoPackageManager.Base.Exceptions
         /// <summary>
         /// 引数マップのエラー部分。
         /// </summary>
-        public virtual string ArgsMap { get; private set; }
+        public PositionInfo ArgsMap { get; private set; }
 
         /// <summary>
         /// 通常のメッセージでエラーをスローします。
         /// </summary>
-        /// <param name="argsmap">エラー部分の引数マップ内容。</param>
-        public ArgumentMapParseException(string argsmap)
+        /// <param name="psinfo">エラー部分の引数マップ内容近くの<see cref="PositionInfo" />クラス情報。</param>
+        public ArgumentMapParseException(PositionInfo psinfo)
         {
-            ArgsMap = argsmap;
+            Message = GetText("ArgumentMapParseError");
+            ArgsMap = psinfo;
+        }
+
+        /// <summary>
+        /// メッセージ付きでエラーをスローします。
+        /// </summary>
+        /// <param name="message">ユーザーに表示するべきメッセージ。</param>
+        /// <param name="psinfo">エラー部分の引数マップ内近くの<see cref="PositionInfo" />クラス情報。</param>
+        public ArgumentMapParseException(string message, PositionInfo psinfo) : base(message)
+        {
+            Message = message;
+            ArgsMap = psinfo;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PotatoPackageManager.Base
+namespace PotatoPackageManager.Base.Util
 {
     /// <summary>
     /// ログ出力を管理します。
@@ -14,7 +14,7 @@ namespace PotatoPackageManager.Base
         public static void Info(string log)
         {
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write(LanguageManager.GetText("InfoNormal"));
+            Console.Write(LanguageChanger.GetText("InfoNormal"));
             Console.ResetColor();
             Console.WriteLine(log);
         }
@@ -26,7 +26,7 @@ namespace PotatoPackageManager.Base
         public static void Warn(string log)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write(LanguageManager.GetText("WarningNormal"));
+            Console.Write(LanguageChanger.GetText("WarningNormal"));
             Console.ResetColor();
             Console.WriteLine(log);
         }
@@ -38,7 +38,7 @@ namespace PotatoPackageManager.Base
         public static void Error(string log)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write(LanguageManager.GetText("ErrorNormal"));
+            Console.Write(LanguageChanger.GetText("ErrorNormal"));
             Console.ResetColor();
             Console.WriteLine(log);
         }

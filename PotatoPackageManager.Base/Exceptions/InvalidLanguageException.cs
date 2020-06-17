@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace PotatoPackageManager.Base.Exceptions
 {
@@ -9,7 +8,6 @@ namespace PotatoPackageManager.Base.Exceptions
     /// <remarks>
     /// このクラスは継承できません。
     /// </remarks>
-    [Serializable]
     public sealed class InvalidLanguageException : CultureNotFoundException
     {
         /// <summary>

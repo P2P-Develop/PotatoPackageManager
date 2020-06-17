@@ -3,7 +3,7 @@
     /// <summary>
     /// 指定されたアクションを定義・実行します。
     /// </summary>
-    public static class ActionManager
+    public static class DelegateBuilder
     {
         /// <summary>
         /// パッケージリストをアップデートします。<br/>

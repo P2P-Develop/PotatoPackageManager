@@ -1,13 +1,13 @@
 ﻿using System;
-using static PotatoPackageManager.Base.LanguageManager;
-using static PotatoPackageManager.Base.Logger;
+using static PotatoPackageManager.Base.LanguageChanger;
+using static PotatoPackageManager.Base.Util.Logger;
 
 namespace PotatoPackageManager.Base
 {
     /// <summary>
     /// Exceptionのスローを管理します。
     /// </summary>
-    public static class ExceptionManager
+    public static class ExceptionBuilder
     {
         /// <summary>
         /// <see cref="Exception"/>基底クラス継承先のExceptionのメッセージを含めてスローします。
