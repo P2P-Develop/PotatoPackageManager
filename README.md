@@ -1,7 +1,10 @@
-# PotatoPackageManager
-![.NET Core](https://github.com/Potato1682/PotatoPackageManager/workflows/.NET%20Core/badge.svg)
-[![Maintainability](https://api.codeclimate.com/v1/badges/81470e9b60df599393fe/maintainability)](https://codeclimate.com/github/Potato1682/PotatoPackageManager/maintainability)
-[![GitHub license](https://img.shields.io/github/license/Potato1682/PotatoPackageManager?color=blue&label=License)](https://github.com/Potato1682/PotatoPackageManager/blob/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/Potato1682/PotatoPackageManager?label=Issues)](https://github.com/Potato1682/PotatoPackageManager/issues)
+<h1 align="center">PotatoPackageManager</h1>
 
-Manage Package(or files) Easily
+<p align="center">
+  <a href="https://dotnet.microsoft.com/download/dotnet-core"><img alt="Supported .NET Core version" src="https://img.shields.io/badge/dotnet-%3E%3D_Core_3.1-blue?style=flat-square"></a>
+  <a href="https://codeclimate.com/github/Potato1682/PotatoPackageManager/maintainability"><img alt="CodeClimate maintenability" src="https://api.codeclimate.com/v1/badges/81470e9b60df599393fe/maintainability?style=flat-square"></a>
+  <a href="https://github.com/P2P-Develop/PotatoPackageManager/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/P2P-Develop/PotatoPackageManager?color=lightblue&style=flat-square"></a>
+  <a href="(https://github.com/P2P-Develop/PotatoPackageManager/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/P2P-Develop/PotatoPackageManager?style=flat-square"></a>
+</p>
+
+<p align="center">Manage Package(or files) Easily</p>
